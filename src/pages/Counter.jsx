@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 
 export default function Counter() {
  const [counter, setCounter] = useState(0)
@@ -7,12 +7,9 @@ export default function Counter() {
         setCounter(counter + value)
  }
 
- useEffect(() => {
-    alert("This component got mounted")
- }, [])
 
   return (
-    <div>
+    <div className="bg-gray-700">
         <button onClick={() => changeCount(1)}>+</button>
         <span>{counter}</span>
         <button onClick={() => changeCount(-1)}>-</button>

@@ -1,7 +1,9 @@
-import Counter from "./components/Counter"
-import Heading from "./components/Heading"
-import Paragraph from "./components/Paragraph"
-
+import Counter from "./pages/Counter"
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+import TodoList from "./pages/TodoList"
+import Layout from "./components/Layout"
+import Contact from "./pages/Contact"
+import ContactDetails from "./pages/ContactDetails"
 
 
 function App() {
@@ -9,20 +11,18 @@ function App() {
   // adasdasd
 
   return (
-    <>
-      <Heading content="This is my first title" title="asdasd"></Heading>
-      <Heading content="This is my second title"></Heading>
-      <Heading content="This is my third title"></Heading>
-
-      <Paragraph>
-       Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-       Perspiciatis quidem molestiae fugit repudiandae distinctio tempora, quae amet, 
-       nobis sit porro numquam commodi quibusdam. Dolores, nulla tenetur! 
-       Culpa explicabo perferendis corporis.
-      </Paragraph>
-
-      <Counter />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Counter />}></Route>
+          <Route path="/todo-list" element={<TodoList />}></Route>
+          <Route path="/contact" element={<Contact />}>
+            
+          </Route>
+          <Route path="/contact/:name" element={<ContactDetails />}></Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
